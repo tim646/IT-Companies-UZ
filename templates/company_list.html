@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %} Companies{% endblock title %}
+
+{% block content %}
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.search {
+float:right;
+margin: 6px;
+}
+.btnsearch{
+
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+}
+@media (max-width: 600px) {
+   body {font-size: 80%;}
+}
+</style>
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+        <br>
+    <h1>All IT-Companies</h1>
+
+        <a class="btn btn-outline-info btn-sm" role="button" href="{% url 'home' %}"> <- Home Page </a>
+<form method="GET">
+    <div class="search">
+        <input type="text" name="search-area" value="{{ search_input }}">
+        <input class="btnsearch" type="submit" value="Search">
+    </div>
+
+</form>
+    <table>
+        <tr>
+            <th>Company Name</th>
+            <th>Location</th>
+            <th>Opening Time</th>
+            <th>Closing Time</th>
+            <th>Website Address</th>
+            <th>Company Status</th>
+        </tr>
+{% for company in company_list %}
+        <tr>
+            <td>{{ company.name }}</td>
+            <td><a href="{{ company.location }}">Link</a></td>
+            <td>{{ company.open }}</td>
+            <td>{{ company.close }}</td>
+            <td><a href="{{ company.website_address }}">Link</a></td>
+            <td>{{ company.company_status }}</td>
+        </tr>
+{% endfor %}
+    </table>
+   </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}IT-Companies{% endblock title %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+        <br>
+  <h1 class="display-4">🌆️ IT-Companies in Uzbekistan 💻</h1>
+  <p class="lead">Want to work in an IT-Company but need information about the companies?</p>
+  <hr class="my-4">
+  <p>You've found the right place! Checkout my collection of IT-Companies with locations.</p>
+  <h5>This website was created  for developers to find all IT companies info in one place.</h5>
+
+
+        <br>
+  <a class="btn btn-warning btn-lg" href="{% url 'company_list' %}" role="button">Show Me!</a>
+        <br>
+        <br>
+
+
+</div>
+    </div>
+
+{% endblock %}
